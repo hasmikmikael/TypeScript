@@ -1,14 +1,6 @@
-//In Javascript
-let numbers = [1, 2, '3'];
-
-//In TypeScript
-//let num: number[] = [1, 2, 3];
-//or
-//let num = [1, 2, 3];
-//in this case we have any array
-// let num = [];
-// num[0] = 1;
-// num[1] = "1";
-
-let num: number[] = [];
-//num.forEach(n => n.)
+// 1, 'Hasmik'
+let user: [number, string] = [1, 'Hasmik'];
+// user[0].
+// user[1].
+//user.
+//user.push(1); //this method adds the element without adding type, which is not good
