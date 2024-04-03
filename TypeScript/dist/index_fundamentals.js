@@ -21,4 +21,4 @@ let employee = {
     name: 'Hasmik',
     retire: (date) => console.log(date)
 };
-//# sourceMappingURL=Index.js.map
+//# sourceMappingURL=index_fundamentals.js.map
