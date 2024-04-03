@@ -1,15 +1,14 @@
-// let sales: number = 123_456_789;
-// let course: string = "TypeScript";
-// let is_published: boolean = true;
+//In Javascript
+let numbers = [1, 2, '3'];
 
-let sales = 123_456_789;
-let course = "TypeScript";
-let is_published = true;
+//In TypeScript
+//let num: number[] = [1, 2, 3];
+//or
+//let num = [1, 2, 3];
+//in this case we have any array
+// let num = [];
+// num[0] = 1;
+// num[1] = "1";
 
-let level;
-level = 1;
-level = 'a';
-
-function render(document: any) {
-    console.log(document);
-}
+let num: number[] = [];
+//num.forEach(n => n.)
