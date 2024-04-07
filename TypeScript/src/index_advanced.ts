@@ -100,3 +100,15 @@ let phone = document.getElementById('phone') as HTMLInputElement;
 // HTMLElement
 // HTMLInputElement
 phone.value
+
+//The unknown Type
+function renderDocument(document: unknown) {
+    // document.move();
+    // document.fly();
+    // document.whateverWeWant();
+    
+    //Narrowing
+    if (typeof document === 'string') {
+        document.toUpperCase();
+    }   
+}
