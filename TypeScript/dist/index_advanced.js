@@ -44,4 +44,12 @@ function renderDocument(document) {
         document.toUpperCase();
     }
 }
+function processEvents() {
+    while (true) {
+    }
+}
+function reject(message) {
+    throw new Error(message);
+}
+processEvents();
 //# sourceMappingURL=index_advanced.js.map

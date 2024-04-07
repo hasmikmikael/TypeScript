@@ -112,3 +112,17 @@ function renderDocument(document: unknown) {
         document.toUpperCase();
     }   
 }
+
+//The never Type
+function processEvents(): never {
+    while (true) {
+        //Read a message from a queue
+    }
+}
+
+function reject(message: string): never {
+    throw new Error(message);
+}
+
+processEvents(); //or reject('...'); 
+//console.log('Hello World!'); // unreachable code
