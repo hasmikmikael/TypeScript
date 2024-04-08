@@ -26,15 +26,41 @@ let seats = new SeatAssignment();
 seats.A1 = 'John';
 seats.A2 = 'Tim';
 class Ride {
-    start() { Ride.activeRides++; }
+    start() { Ride._activeRides++; }
     ;
-    stop() { Ride.activeRides--; }
+    stop() { Ride._activeRides--; }
     ;
+    static get activeRides() {
+        return Ride._activeRides;
+    }
 }
-Ride.activeRides = 0;
+Ride._activeRides = 0;
 let ride1 = new Ride();
 ride1.start();
 let ride2 = new Ride();
 ride2.start();
 console.log(Ride.activeRides);
+class Person {
+    constructor(firstName, lastName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
+    get fullName() {
+        return this.firstName + ' ' + this.lastName;
+    }
+    walk() {
+        console.log('Walking');
+    }
+}
+class Student extends Person {
+    constructor(studentId, firstName, lastName) {
+        super(firstName, lastName);
+        this.studentId = studentId;
+    }
+    takeTest() {
+        console.log("Taking a test");
+    }
+}
+let student = new Student(1, 'John', 'john@gmail.com');
+student.takeTest();
 //# sourceMappingURL=index_object_oriented_programming.js.map
