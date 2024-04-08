@@ -20,4 +20,9 @@ console.log(account.balance);
 console.log(account);
 console.log(typeof account);
 console.log(account instanceof Account);
+class SeatAssignment {
+}
+let seats = new SeatAssignment();
+seats.A1 = 'John';
+seats.A2 = 'Tim';
 //# sourceMappingURL=index_object_oriented_programming.js.map
