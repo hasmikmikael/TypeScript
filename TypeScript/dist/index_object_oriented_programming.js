@@ -63,4 +63,11 @@ class Student extends Person {
 }
 let student = new Student(1, 'John', 'john@gmail.com');
 student.takeTest();
+class Teacher extends Person {
+    get fullName() {
+        return 'Professor ' + super.fullName;
+    }
+}
+let teacher = new Teacher('John', 'Smith');
+console.log(teacher.fullName);
 //# sourceMappingURL=index_object_oriented_programming.js.map

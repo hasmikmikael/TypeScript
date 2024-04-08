@@ -106,3 +106,14 @@ class Student extends Person {
 
 let student = new Student(1, 'John', 'john@gmail.com');
 student.takeTest();
+
+
+//Method Overriding
+class Teacher extends Person {
+    override get fullName() {
+        return 'Professor ' + super.fullName;
+    }
+}
+
+let teacher = new Teacher('John', 'Smith');
+console.log(teacher.fullName);
