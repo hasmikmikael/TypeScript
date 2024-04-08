@@ -149,7 +149,7 @@ class Circle extends Shape {
         super(color);
     }
 
-    override render() {
+    override render(): void {
         console.log('Rendering a circle.');
     }
 }
