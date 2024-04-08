@@ -100,4 +100,15 @@ class Circle extends Shape {
 }
 let circle = new Circle(2, 'red');
 circle.render();
+class GoogleCalendar {
+    constructor(name) {
+        this.name = name;
+    }
+    addEvent() {
+        throw new Error("Method not implemented.");
+    }
+    removeEvent() {
+        throw new Error("Method not implemented.");
+    }
+}
 //# sourceMappingURL=index_object_oriented_programming.js.map
