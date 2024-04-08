@@ -16,15 +16,29 @@ class Account {
         this._balance += amount;
     }
 
-    getBalance(): number {
+    // getBalance(): number {
+    //     return this._balance;
+    // }
+
+    //Getter
+    get balance(): number {
         return this._balance;
     }
+
+    // //Setter
+    // set balance(value: number) {
+    //     if (value < 0)
+    //         throw new Error('Invalid value');
+    //     this._balance = value;
+    // }
 }
 
 //Objects
 let account = new Account(1, 'Hasmik', 0);
 account.deposit(100);
-console.log(account.getBalance());
+// console.log(account.getBalance());
+console.log(account.balance);
+// account.balance = 1;
 console.log(account);
 console.log(typeof account);
 console.log(account instanceof Account);
