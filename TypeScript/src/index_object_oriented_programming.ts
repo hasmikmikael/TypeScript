@@ -89,7 +89,7 @@ class Person {
         return this.firstName + ' ' + this.lastName;
     }
 
-    walk() {
+    protected walk() {
         console.log('Walking');
     }
 }
