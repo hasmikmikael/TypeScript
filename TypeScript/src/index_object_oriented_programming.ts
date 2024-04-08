@@ -135,3 +135,24 @@ printNames([
     new Teacher('Tim', 'Moris'),
     new Principal('Mary', 'Smith')
 ]);
+
+
+//Abstract Classes and Methods
+abstract class Shape {
+    constructor(public color: string) {}
+
+    abstract render(): void;
+}
+
+class Circle extends Shape {
+    constructor(public radius: number, color: string) {
+        super(color);
+    }
+
+    override render() {
+        console.log('Rendering a circle.');
+    }
+}
+
+let circle = new Circle(2, 'red');
+circle.render();
