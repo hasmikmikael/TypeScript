@@ -19,4 +19,10 @@ class KeyValuePair {
     }
 }
 let pair = new KeyValuePair(1, 'a');
+class ArrayUtils {
+    static WrapInArray(value) {
+        return [value];
+    }
+}
+let numbersArray = ArrayUtils.WrapInArray('1');
 //# sourceMappingURL=index_generics.js.map
