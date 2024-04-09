@@ -40,3 +40,32 @@ class ArrayUtils {
 // let numbersArray = utils.WrapInArray('1');
 
 let numbersArray = ArrayUtils.WrapInArray('1');
+
+//Generic Interfaces
+//http://mywebsite.com/users
+//http://mywebsite.com/products
+
+interface Result<T> {
+    data: T | null;
+    error: string | null;
+}
+
+function fetch<T>(url: string): Result<T> {
+    if (url.length > 0)
+        return { data: null, error: null };
+    return { data: null, error: null };
+}
+
+interface Users {
+    userName: string;
+}
+
+interface Product {
+    title: string;
+}
+
+let result1 = fetch<Users>('url');
+//result1.data?.userName;
+
+let result2 = fetch<Product>('url');
+//result2.data?.title;
