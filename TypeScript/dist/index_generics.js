@@ -56,4 +56,31 @@ function echo4(value) {
 }
 console.log(echo4(new Person2('a')));
 console.log(echo4(new Customer2('a')));
+class Store {
+    constructor() {
+        this._objects = [];
+    }
+    add(obj) {
+        this._objects.push(obj);
+    }
+}
+let store = new Store();
+store.add({ name: 'tea', price: 10 });
+class CompressibleStore extends Store {
+    compress() { }
+}
+let compStore = new CompressibleStore();
+compStore.compress();
+class SearchableStore extends Store {
+    find(name) {
+        return this._objects.find(obj => obj.name === name);
+    }
+}
+class ProductStore extends Store {
+    filterByCategory(category) {
+        if (category.length < 0)
+            return [];
+        return [];
+    }
+}
 //# sourceMappingURL=index_generics.js.map

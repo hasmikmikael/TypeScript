@@ -112,3 +112,45 @@ function echo4<T extends Person2>(value: T): T {
 
 console.log(echo4(new Person2('a')));
 console.log(echo4(new Customer2('a')));
+
+
+//---------Extending Geeric Classes---------
+interface Product1 {
+    name: string;
+    price: number;
+}
+
+class Store<T> {
+    protected _objects: T[] = [];
+
+    add(obj: T): void {
+        this._objects.push(obj);
+    }
+}
+
+let store = new Store<Product1>();
+store.add({ name: 'tea', price: 10 });
+
+// Pass on the generic type parameter
+class CompressibleStore<T> extends Store<T> {
+    compress() {}
+}
+
+let compStore = new CompressibleStore<Product1>();
+compStore.compress();
+
+// Restrict the generic type parameter
+class SearchableStore<T extends { name: string }> extends Store<T> {
+    find(name: string): T | undefined {
+        return this._objects.find(obj => obj.name === name);
+    }
+}
+
+// Fix the generic type parameter
+class ProductStore extends Store<Product1> {
+    filterByCategory(category: string): Product1[] {
+        if (category.length < 0)
+          return [];
+        return [];
+    }
+}
