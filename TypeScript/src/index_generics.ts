@@ -69,3 +69,46 @@ let result1 = fetch<Users>('url');
 
 let result2 = fetch<Product>('url');
 //result2.data?.title;
+
+
+//----------------Generic Constraints-------------------
+function echo1<T extends number | string>(value: T): T {
+    return value;
+}
+
+echo1('1');
+
+// Restrict using a shape object
+function echo2<T extends { name: string}>(value: T): T {
+    return value;
+}
+
+echo2({ name: 'a' }); //or
+
+// Restric using an interface or a class
+interface Person1 {
+    name: string;
+}
+
+function echo3<T extends Person1>(value: T): T {
+    return value;
+}
+
+echo3({name: 'a'}); 
+
+//or
+
+class Person2 {
+    constructor(public name: string) {}
+}
+
+class Customer2 extends Person2 {
+
+}
+
+function echo4<T extends Person2>(value: T): T {
+    return value;
+}
+
+console.log(echo4(new Person2('a')));
+console.log(echo4(new Customer2('a')));
