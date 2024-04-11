@@ -153,3 +153,25 @@ class User4 {
 let user4 = new User4('1234');
 //user4.password = '1';
 console.log(user4.password);
+
+
+//-------------Parameter Decorators--------
+type WatchedParameter = {
+    methodName: string;
+    parameterIndex: number;
+}
+
+const watchedParameters: WatchedParameter[] = [];
+
+function Watch(target: any, methodName: string, parameterIndex: number) {
+    watchedParameters.push({
+        methodName,
+        parameterIndex
+    })
+}
+
+class Vehicle {
+    move(@Watch speed: number) {}
+}
+
+console.log(watchedParameters);
