@@ -98,4 +98,8 @@ let store2 = new Store2();
 store2.add({ name: 'a', price: 1 });
 store2.find('name', 'a');
 store2.find('price', 1);
+let product = {
+    name: 'a',
+    price: 1
+};
 //# sourceMappingURL=index_generics.js.map

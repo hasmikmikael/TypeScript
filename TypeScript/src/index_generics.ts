@@ -180,3 +180,33 @@ store2.add({ name: 'a', price: 1 });
 store2.find('name', 'a');
 store2.find('price', 1);
 //store2.find('nonExistingProperty', 1); //Invalid
+
+
+//---------------Type Mapping----------------
+interface Product3 {
+    name: string;
+    price: number;
+}
+
+type ReadOnly<T> = {
+    // Index signature
+    // keyof
+    //readonly [Property in keyof Product]: Product[Property] // or
+    readonly [K in keyof T]: T[K]
+}
+
+type Optional<T> = {
+    [K in keyof T]?: T[K]
+}
+
+type Nullable<T> = {
+    [K in keyof T]: T[K] | null
+}
+
+let product: ReadOnly<Product3> = {
+    name: 'a',
+    price: 1
+}
+
+// Utility types
+//https://www.typescriptlang.org/docs/handbook/utility-types.html
