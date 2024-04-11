@@ -52,4 +52,14 @@ let ProfileComponent3 = class ProfileComponent3 {
 ProfileComponent3 = __decorate([
     Component3({ selector: '#my-profile' })
 ], ProfileComponent3);
+function Pipe(constructor) {
+    console.log('Pipe decorator called');
+    constructor.prototype.pipe = true;
+}
+let ProfileComponent4 = class ProfileComponent4 {
+};
+ProfileComponent4 = __decorate([
+    Component3({ selector: '#my-profile' }),
+    Pipe
+], ProfileComponent4);
 //# sourceMappingURL=index_decorators.js.map

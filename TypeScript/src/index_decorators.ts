@@ -60,3 +60,15 @@ function Component3(options: ComponentOptions) {
 @Component3({ selector: '#my-profile' })
 class ProfileComponent3 {
 }
+
+//-----------------Decorator Composition---------
+function Pipe(constructor: Function) {
+    console.log('Pipe decorator called');
+    constructor.prototype.pipe = true;
+}
+
+@Component3({ selector: '#my-profile'})
+@Pipe
+// f(g(x))
+class ProfileComponent4 {
+}
