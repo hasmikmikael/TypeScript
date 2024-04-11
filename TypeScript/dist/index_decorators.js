@@ -22,4 +22,34 @@ class Component1 {
 }
 class ProfileComponent1 extends Component1 {
 }
+function Component2(value) {
+    return (constructor) => {
+        console.log('Component decorator called');
+        constructor.prototype.options = value;
+        constructor.prototype.uniqueId = Date.now;
+        constructor.prototype.insertInDOM = () => {
+            console.log('Inserting the component in the DOM');
+        };
+    };
+}
+let ProfileComponent2 = class ProfileComponent2 {
+};
+ProfileComponent2 = __decorate([
+    Component2(1)
+], ProfileComponent2);
+function Component3(options) {
+    return (constructor) => {
+        console.log('Component decorator called');
+        constructor.prototype.options = options;
+        constructor.prototype.uniqueId = Date.now;
+        constructor.prototype.insertInDOM = () => {
+            console.log('Inserting the component in the DOM');
+        };
+    };
+}
+let ProfileComponent3 = class ProfileComponent3 {
+};
+ProfileComponent3 = __decorate([
+    Component3({ selector: '#my-profile' })
+], ProfileComponent3);
 //# sourceMappingURL=index_decorators.js.map
