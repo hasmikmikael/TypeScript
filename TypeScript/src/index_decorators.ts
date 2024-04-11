@@ -1,4 +1,4 @@
-// Class Decorators
+//---------------Class Decorators------------------
 function Component(constructor: Function) {
     console.log('Component decorator called');
     constructor.prototype.uniqueId =  Date.now;
@@ -98,7 +98,7 @@ let person = new Person3();
 person.say('Hello');
 
 
-//--------Accessor decorators--------
+//--------Accessor Decorators--------
 function Capitalize(target: any, methodName: string, descriptor: PropertyDescriptor) {
     const original = descriptor.get;
     descriptor.get = function() {
@@ -121,3 +121,35 @@ class Person4 {
 
 let person4 = new Person4('tim', 'smith');
 console.log(person4.fullName);
+
+//--------------Property Decorators---------------
+function MinLength(length: number) {
+    return (target: any, propertyName: string) => {
+        let value: string;
+
+        const descriptor: PropertyDescriptor = {
+            get() { return value; },
+            set(newValue: string) {
+                if (newValue.length < length)
+                    throw new Error(`${propertyName} should be at least ${length} characters long.`);
+                value = newValue;
+            }
+        }
+
+        Object.defineProperty(target, propertyName, descriptor);
+    }
+}
+
+class User4 {
+    @MinLength(4)
+    password: string;
+
+    constructor(password: string) {
+        this.password = password;
+    }
+}
+
+// let user4 = new User4('123');
+let user4 = new User4('1234');
+//user4.password = '1';
+console.log(user4.password);

@@ -101,4 +101,28 @@ __decorate([
 ], Person4.prototype, "fullName", null);
 let person4 = new Person4('tim', 'smith');
 console.log(person4.fullName);
+function MinLength(length) {
+    return (target, propertyName) => {
+        let value;
+        const descriptor = {
+            get() { return value; },
+            set(newValue) {
+                if (newValue.length < length)
+                    throw new Error(`${propertyName} should be at least ${length} characters long.`);
+                value = newValue;
+            }
+        };
+        Object.defineProperty(target, propertyName, descriptor);
+    };
+}
+class User4 {
+    constructor(password) {
+        this.password = password;
+    }
+}
+__decorate([
+    MinLength(4)
+], User4.prototype, "password", void 0);
+let user4 = new User4('1234');
+console.log(user4.password);
 //# sourceMappingURL=index_decorators.js.map
