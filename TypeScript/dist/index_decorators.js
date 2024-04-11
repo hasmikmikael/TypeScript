@@ -80,4 +80,25 @@ __decorate([
 ], Person3.prototype, "say", null);
 let person = new Person3();
 person.say('Hello');
+function Capitalize(target, methodName, descriptor) {
+    const original = descriptor.get;
+    descriptor.get = function () {
+        const result = original === null || original === void 0 ? void 0 : original.call(this);
+        return (typeof result === 'string') ? result.toUpperCase() : result;
+    };
+}
+class Person4 {
+    constructor(firstName, lastName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
+    get fullName() {
+        return `${this.firstName} ${this.lastName}`;
+    }
+}
+__decorate([
+    Capitalize
+], Person4.prototype, "fullName", null);
+let person4 = new Person4('tim', 'smith');
+console.log(person4.fullName);
 //# sourceMappingURL=index_decorators.js.map
