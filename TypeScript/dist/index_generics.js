@@ -83,4 +83,19 @@ class ProductStore extends Store {
         return [];
     }
 }
+class Store2 {
+    constructor() {
+        this._objects = [];
+    }
+    add(obj) {
+        this._objects.push(obj);
+    }
+    find(property, value) {
+        return this._objects.find(obj => obj[property] === value);
+    }
+}
+let store2 = new Store2();
+store2.add({ name: 'a', price: 1 });
+store2.find('name', 'a');
+store2.find('price', 1);
 //# sourceMappingURL=index_generics.js.map

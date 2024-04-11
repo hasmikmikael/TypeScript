@@ -154,3 +154,29 @@ class ProductStore extends Store<Product1> {
         return [];
     }
 }
+
+//---------------The keyof Operator---------------
+interface Product2 {
+    name: string;
+    price: number;
+}
+
+class Store2<T> {
+    protected _objects: T[] = [];
+
+    add(obj: T): void {
+        this._objects.push(obj);
+    }
+
+    // T is Product2
+    // keyof T => 'name' | 'price'
+    find(property: keyof T, value: unknown): T | undefined {
+        return this._objects.find(obj => obj[property] === value);
+    }
+}
+
+let store2 = new Store2<Product2>();
+store2.add({ name: 'a', price: 1 });
+store2.find('name', 'a');
+store2.find('price', 1);
+//store2.find('nonExistingProperty', 1); //Invalid
