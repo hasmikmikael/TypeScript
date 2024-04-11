@@ -72,3 +72,27 @@ function Pipe(constructor: Function) {
 // f(g(x))
 class ProfileComponent4 {
 }
+
+//-----------------Method Decorators-------------
+function Log(target: any, methodName: string, descriptor: PropertyDescriptor) {
+    const original = descriptor.value as Function;
+    //descriptor.value = function() {
+    //descriptor.value = function(message: string) {
+    descriptor.value = function(...args: any) {
+        console.log('Before');
+        //original.call(this, 'Blue Sky');
+        //original.call(this, message);
+        original.call(this, ...args)
+        console.log('After');
+    }
+}
+
+class Person3 {
+    @Log
+    say(message: string) {
+        console.log('Person says ' + message);
+    }
+}
+
+let person = new Person3();
+person.say('Hello');

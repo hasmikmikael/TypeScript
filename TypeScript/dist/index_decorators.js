@@ -62,4 +62,22 @@ ProfileComponent4 = __decorate([
     Component3({ selector: '#my-profile' }),
     Pipe
 ], ProfileComponent4);
+function Log(target, methodName, descriptor) {
+    const original = descriptor.value;
+    descriptor.value = function (...args) {
+        console.log('Before');
+        original.call(this, ...args);
+        console.log('After');
+    };
+}
+class Person3 {
+    say(message) {
+        console.log('Person says ' + message);
+    }
+}
+__decorate([
+    Log
+], Person3.prototype, "say", null);
+let person = new Person3();
+person.say('Hello');
 //# sourceMappingURL=index_decorators.js.map
