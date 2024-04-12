@@ -9,6 +9,6 @@
 // }
 
 //---------Creating Declaration Files---------
-export function calculateTax(income) {
-    return income * .3;
-}
+// export function calculateTax(income) {
+//     return income * .3;
+// }
